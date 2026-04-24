@@ -24,8 +24,16 @@
 		"lint:md:docs": "wp-scripts lint-md-docs",
 		"lint:pkg-json": "wp-scripts lint-pkg-json",
 		"packages-update": "wp-scripts packages-update",
-		"zip": "wp-scripts plugin-zip"
+		"plugin-zip": "wp-scripts plugin-zip"
   },
+  "files": [
+    "plugin.php",
+    "build",
+    "assets",
+    "inc",
+    "vendor",
+    "readme.txt"
+  ],
   "dependencies": {
     "@10up/block-components": "^1.22.2"
   },
