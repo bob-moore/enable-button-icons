@@ -24,7 +24,7 @@
 			"step": "installPlugin",
 			"pluginZipFile": {
 				"resource": "url",
-				"url": "https://github-proxy.com/proxy/?repo=ndiego/enable-button-icons&branch=main"
+				"url": "https://github.com/bob-moore/enable-button-icons/releases/latest/download/enable-button-icons.zip"
 			}
 		},
 		{
@@ -38,7 +38,7 @@
 			"step": "importWxr",
 			"file": {
 				"resource": "url",
-				"url": "https://raw.githubusercontent.com/ndiego/enable-button-icons/main/_playground/demo-content.xml"
+				"url": "https://raw.githubusercontent.com/bob-moore/enable-button-icons/main/_playground/demo-content.xml"
 			}
 		}
 	]
