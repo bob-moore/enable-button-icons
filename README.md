@@ -68,16 +68,6 @@ $plugin->mount();
 5. Pick icon size and position.
 6. Save and view the post.
 
-## Development
-
-```bash
-npm install
-npm run build
-npm run watch
-npm run lint:css
-npm run lint:js
-```
-
 ## Updates
 
 This plugin is distributed through GitHub releases (not WordPress.org). The plugin includes a scoped GitHub updater so WordPress can detect and apply new versions from this repository.
