@@ -1,4 +1,0 @@
-
-> enable-button-icons@0.1.0 lint:js
-> wp-scripts lint-js webpack.config.js src/index.ts src/icons.ts src/components/IconPickerControl.tsx
-
