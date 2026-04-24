@@ -2,27 +2,41 @@
   "name": "enable-button-icons",
   "version": "0.1.0",
   "description": "Easily add icons to Button blocks.",
-  "author": "Nick Diego",
+  "author": "Bob Moore",
   "license": "GPL-2.0-or-later",
   "repository": {
     "type": "git",
     "url": "git://github.com/ndiego/enable-button-icons.git"
   },
   "scripts": {
-    "build": "wp-scripts build",
-    "lint:css": "wp-scripts lint-style",
-    "lint:js": "wp-scripts lint-js",
-    "lint:js:src": "wp-scripts lint-js ./src",
-    "lint:js:src:fix": "wp-scripts lint-js ./src --fix",
-    "start": "wp-scripts start",
-    "packages-update": "wp-scripts packages-update",
-    "update-pot": "wp i18n make-pot . languages/enable-button-icons.pot --exclude=src",
-    "plugin-zip": "wp-scripts plugin-zip"
+    "generate-icons": "node scripts/generate-icons-ts.js",
+		"build": "npm run fix:css && npm run fix:js && npm run compile",
+		"compile": "wp-scripts build",
+		"watch": "wp-scripts start",
+		"watch:hot": "wp-scripts start --hot",
+		"check-engines": "wp-scripts check-engines",
+		"check-licenses": "wp-scripts check-licenses --prod --gpl2",
+		"format": "wp-scripts format",
+		"lint:css": "wp-scripts lint-style './src/**/*.scss'",
+		"fix:css": "wp-scripts lint-style './src/**/*.scss' --fix",
+		"lint:js": "wp-scripts lint-js './src/**/*.{js,jsx,ts,tsx}'",
+		"fix:js": "wp-scripts lint-js './src/**/*.{js,jsx,ts,tsx}' --fix",
+		"lint:md:docs": "wp-scripts lint-md-docs",
+		"lint:pkg-json": "wp-scripts lint-pkg-json",
+		"packages-update": "wp-scripts packages-update",
+		"zip": "wp-scripts plugin-zip"
   },
   "dependencies": {
-    "classnames": "^2.3.2"
+    "@10up/block-components": "^1.22.2"
   },
   "devDependencies": {
+    "react": "^18.3.1",
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
+    "@mui/icons-material": "^7.3.4",
+    "@mui/material": "^7.3.4",
+    "@tabler/icons-react": "^3.41.1",
+    "@wordpress/components": "^32.6.0",
     "@wordpress/icons": "^9.35.0",
     "@wordpress/scripts": "^26.15.0",
     "webpack-remove-empty-scripts": "^0.8.4"

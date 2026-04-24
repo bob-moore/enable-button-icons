@@ -1,0 +1,13 @@
+{
+    "name": "bmd/enable-button-icons-deps",
+    "description": "Scoped runtime dependencies for Enable Button Icons.",
+    "type": "project",
+    "config": {
+        "platform": {
+            "php": "8.1"
+        }
+    },
+    "require": {
+        "bmd/github-wp-updater": "^0.1.2"
+    }
+}
