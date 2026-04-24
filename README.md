@@ -1,5 +1,7 @@
 # Enable Button Icons
 
+![Enable Button Icons](assets/banner-1544x500.jpg)
+
 [![Try it in the WordPress Playground](https://img.shields.io/badge/Try_in_Playground-v0.3.0-blue?logo=wordpress&logoColor=%23fff&labelColor=%233858e9&color=%233858e9)](https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/bob-moore/enable-button-icons/main/_playground/blueprint-github.json)
 
 Add icons to the WordPress Button block (`core/button`) in both the editor and frontend.
