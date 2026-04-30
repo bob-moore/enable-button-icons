@@ -9,6 +9,13 @@ import { IconPositionControl } from './components/IconPositionControl';
 import { IconSizeControl } from './components/IconSizeControl';
 import type { BlockEditProps, ButtonAttributes, IconValue } from './types';
 
+const EMPTY_ICON: IconValue = {
+	name: null,
+	iconSet: null,
+	label: null,
+	src: null,
+};
+
 const IconPickerControl = lazy( () =>
 	import( './components/IconPickerControl' ).then( ( m ) => ( {
 		default: m.IconPickerControl,
@@ -37,7 +44,13 @@ export const Edit = createHigherOrderComponent<
 		const { icon, iconSize, iconPositionLeft } = attributes;
 
 		const handleIconChange = ( nextIcon: IconValue ) => {
-			setAttributes( { icon: nextIcon } );
+			const isSelectedIcon =
+				icon?.name === nextIcon?.name &&
+				icon?.iconSet === nextIcon?.iconSet &&
+				icon?.label === nextIcon?.label &&
+				icon?.src === nextIcon?.src;
+
+			setAttributes( { icon: isSelectedIcon ? EMPTY_ICON : nextIcon } );
 		};
 
 		const handleIconSizeChange = ( value: string ) => {
@@ -62,6 +75,11 @@ export const Edit = createHigherOrderComponent<
 								onChange={ handleIconChange }
 							/>
 						</Suspense>
+					</PanelBody>
+					<PanelBody
+						title={ __( 'Icon Styles', 'enable-button-icons' ) }
+						initialOpen={ false }
+					>
 						<IconSizeControl
 							value={ iconSize }
 							onChange={ handleIconSizeChange }

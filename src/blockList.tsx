@@ -6,11 +6,15 @@ export const BlockList = createHigherOrderComponent( ( BlockListBlock ) => {
 	return ( props: BlockListProps ) => {
 		const { name, attributes } = props;
 
-		if ( 'core/button' !== name || ! attributes?.icon ) {
+		if ( 'core/button' !== name || ! attributes?.icon?.name ) {
 			return <BlockListBlock { ...props } />;
 		}
 
 		const { icon, iconSize, iconPositionLeft } = attributes;
+
+		if ( ! icon?.src?.length ) {
+			return <BlockListBlock { ...props } />;
+		}
 
 		const className = [
 			props?.className,

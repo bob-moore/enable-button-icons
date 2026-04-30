@@ -1,8 +1,6 @@
 import {
 	__experimentalParseQuantityAndUnitFromRawValue as parseQuantityAndUnitFromRawValue,
 	__experimentalUnitControl as UnitControl,
-	Flex,
-	FlexItem,
 	PanelRow,
 	RangeControl,
 } from '@wordpress/components';
@@ -60,23 +58,30 @@ export const IconSizeControl: FC< IconSizeControlProps > = ( {
 
 	return (
 		<PanelRow className="enable-button-icons-control-wrapper unit-range-wrapper">
-			<UnitControl
-				label={ __( 'Icon size', 'enable-button-icons' ) }
-				value={ value }
-				onChange={ handleUnitControlChange }
-				units={ ICON_SIZE_UNITS }
-				__next40pxDefaultSize
-			/>
-			<RangeControl
-				label={ __( 'Icon size', 'enable-button-icons' ) }
-				value={ sliderValue }
-				onChange={ handleSliderChange }
-				min={ iconSizeRange.min }
-				max={ iconSizeRange.max }
-				step={ iconSizeRange.step }
-				withInputField={ false }
-				hideLabelFromVision
-			/>
+			<span className="components-base-control__label">
+				{ __( 'Icon size', 'enable-button-icons' ) }
+			</span>
+			<div className="unit-range-wrapper__controls">
+				<UnitControl
+					label={ __( 'Icon size', 'enable-button-icons' ) }
+					value={ value }
+					onChange={ handleUnitControlChange }
+					units={ ICON_SIZE_UNITS }
+					__next40pxDefaultSize
+					hideLabelFromVision
+				/>
+				<RangeControl
+					label={ __( 'Icon size', 'enable-button-icons' ) }
+					value={ sliderValue }
+					onChange={ handleSliderChange }
+					min={ iconSizeRange.min }
+					max={ iconSizeRange.max }
+					step={ iconSizeRange.step }
+					withInputField={ false }
+					hideLabelFromVision
+					__next40pxDefaultSize
+				/>
+			</div>
 		</PanelRow>
 	);
 };

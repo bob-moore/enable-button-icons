@@ -2,7 +2,7 @@
 
 ![Enable Button Icons](assets/banner-1544x500.jpg)
 
-[![Try it in the WordPress Playground](https://img.shields.io/badge/Try_in_Playground-v0.3.0-blue?logo=wordpress&logoColor=%23fff&labelColor=%233858e9&color=%233858e9)](https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/bob-moore/enable-button-icons/main/_playground/blueprint-github.json)
+[![Try it in the WordPress Playground](https://img.shields.io/badge/Try_in_Playground-v0.3.1-blue?logo=wordpress&logoColor=%23fff&labelColor=%233858e9&color=%233858e9)](https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/bob-moore/enable-button-icons/main/_playground/blueprint-github.json)
 
 Add icons to the WordPress Button block (`core/button`) in both the editor and frontend.
 
@@ -73,6 +73,17 @@ $plugin->mount();
 This plugin is distributed through GitHub releases (not WordPress.org). The plugin includes a scoped GitHub updater so WordPress can detect and apply new versions from this repository.
 
 ## Changelog
+
+
+### 0.3.1
+
+- Added icon toggle deselection — clicking the currently selected icon removes it.
+- Split editor sidebar into separate "Icon" and "Icon Styles" panels.
+- Improved icon size control layout with a consistent label and grid alignment.
+- Fixed null safety for custom SVG icon input field.
+- Fixed block list rendering to skip when icon has no source.
+- Updated `IconValue` TypeScript types to allow nullable fields.
+- Removed unused `classnames` dependency.
 
 ### 0.3.0
 

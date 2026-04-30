@@ -5,7 +5,7 @@
  * Author:            Bob Moore
  * Author URI:        https://www.bobmoore.dev
  * Description:       Adds icons to Button blocks.
- * Version:           0.3.0
+ * Version:           0.3.1
  * Requires at least: 6.9
  * Tested up to:      7.0
  * Requires PHP:      8.2

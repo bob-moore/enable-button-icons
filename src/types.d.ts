@@ -1,8 +1,8 @@
 export type IconValue = {
-	name: string;
-	iconSet: string;
-	label: string;
-	src: string;
+	name: string | null;
+	iconSet: string | null;
+	label: string | null;
+	src: string | null;
 } | null;
 
 export type ButtonAttributes = {

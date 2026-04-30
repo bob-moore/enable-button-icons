@@ -77,7 +77,9 @@ export const IconPickerControl: FC< IconPickerControlProps > = ( {
 						'Paste the full SVG markup to use as the button icon.',
 						'enable-button-icons'
 					) }
-					value={ icon?.iconSet === ICON_SET_CUSTOM ? icon.src : '' }
+					value={
+						icon?.iconSet === ICON_SET_CUSTOM ? icon.src ?? '' : ''
+					}
 					onChange={ ( value ) =>
 						onChange( {
 							name: ICON_SET_CUSTOM,
