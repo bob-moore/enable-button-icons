@@ -198,11 +198,11 @@
 		<guid isPermaLink="false">https://playground.wordpress.net/scope:0.1313479475293886/?page_id=7</guid>
 		<description></description>
 		<content:encoded><![CDATA[<!-- wp:buttons -->
-<div class="wp-block-buttons"><!-- wp:button {"icon":"cloud"} -->
+<div class="wp-block-buttons"><!-- wp:button {"icon":{"name":"cloud-download-outlined","iconSet":"mui","label":"Cloud Download Outlined","src":"\u003csvg xmlns=\u0022http://www.w3.org/2000/svg\u0022 viewBox=\u00220 0 24 24\u0022\u003e\u003cpath d=\u0022M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96M19 18H6c-2.21 0-4-1.79-4-4 0-2.05 1.53-3.76 3.56-3.97l1.07-.11.5-.95C8.08 7.14 9.94 6 12 6c2.62 0 4.88 1.86 5.39 4.43l.3 1.5 1.53.11c1.56.1 2.78 1.41 2.78 2.96 0 1.65-1.35 3-3 3m-5.55-8h-2.9v3H8l4 4 4-4h-2.55z\u0022\u003e\u003c/path\u003e\u003c/svg\u003e"}} -->
 <div class="wp-block-button"><a class="wp-block-button__link wp-element-button">Download</a></div>
 <!-- /wp:button -->
 
-<!-- wp:button {"icon":"external-arrow"} -->
+<!-- wp:button {"icon":{"name":"external","iconSet":"wordpress","label":"External","src":"\u003csvg xmlns=\u0022http://www.w3.org/2000/svg\u0022 viewBox=\u00220 0 24 24\u0022 aria-hidden=\u0022true\u0022 focusable=\u0022false\u0022\u003e\u003cpath d=\u0022M19.5 4.5h-7V6h4.44l-5.97 5.97 1.06 1.06L18 7.06v4.44h1.5v-7Zm-13 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-3H17v3a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h3V5.5h-3Z\u0022\u003e\u003c/path\u003e\u003c/svg\u003e"}} -->
 <div class="wp-block-button"><a class="wp-block-button__link wp-element-button">Live preview</a></div>
 <!-- /wp:button --></div>
 <!-- /wp:buttons -->]]></content:encoded>

@@ -52,7 +52,7 @@
             "folder": "./vendor/scoped",
             "composerjson": "composer-deps.json",
             "composerlock": "composer-deps.lock",
-            "autorun": true
+            "autorun": false
         }
     }
 }

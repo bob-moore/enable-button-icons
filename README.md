@@ -2,6 +2,13 @@
 
 ![Enable Button Icons](assets/banner-1544x500.jpg)
 
+[![Lint CSS](https://github.com/bob-moore/enable-button-icons/actions/workflows/lint-css.yml/badge.svg)](https://github.com/bob-moore/enable-button-icons/actions/workflows/lint-css.yml)
+[![Lint JS](https://github.com/bob-moore/enable-button-icons/actions/workflows/lint-js.yml/badge.svg)](https://github.com/bob-moore/enable-button-icons/actions/workflows/lint-js.yml)
+[![Lint PHP](https://github.com/bob-moore/enable-button-icons/actions/workflows/lint-php.yml/badge.svg)](https://github.com/bob-moore/enable-button-icons/actions/workflows/lint-php.yml)
+[![WordPress](https://img.shields.io/badge/WordPress-6.9%2B-3858e9?logo=wordpress&logoColor=fff)](https://wordpress.org/)
+[![PHP](https://img.shields.io/badge/PHP-8.2%2B-777bb4?logo=php&logoColor=fff)](https://www.php.net/)
+[![Latest Release](https://img.shields.io/github/v/release/bob-moore/enable-button-icons?label=release)](https://github.com/bob-moore/enable-button-icons/releases/latest)
+[![License](https://img.shields.io/badge/license-GPL--2.0--or--later-blue)](https://www.gnu.org/licenses/gpl-2.0.html)
 [![Try it in the WordPress Playground](https://img.shields.io/badge/Try_in_Playground-v0.3.2-blue?logo=wordpress&logoColor=%23fff&labelColor=%233858e9&color=%233858e9)](https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/bob-moore/enable-button-icons/main/_playground/blueprint-github.json)
 
 Add icons to the WordPress Button block (`core/button`) in both the editor and frontend.
