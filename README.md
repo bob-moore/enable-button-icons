@@ -60,13 +60,18 @@ Then bootstrap:
 ```php
 use Bmd\EnableButtonIcons\Plugin;
 
+$dependency_url  = plugin_dir_url( __FILE__ ) . 'vendor/bmd/enable-button-icons/';
+$dependency_path = plugin_dir_path( __FILE__ ) . 'vendor/bmd/enable-button-icons/';
+
 $plugin = new Plugin(
-    plugin_dir_url( __FILE__ ),
-    plugin_dir_path( __FILE__ )
+    $dependency_url,
+    $dependency_path
 );
 
 $plugin->mount();
 ```
+
+The `Plugin` constructor expects the URL and filesystem path to the Enable Button Icons dependency root, not the file where you call it. For example, pass `/path/to/vendor/bmd/enable-button-icons/` and the matching public URL for that directory.
 
 ## Usage
 
