@@ -3,7 +3,7 @@ Contributors: Bob Moore
 Tags: block-editor, gutenberg, button, icons, blocks
 Requires at least: 6.9
 Tested up to: 7.0
-Stable tag: 0.3.1
+Stable tag: 0.3.2
 Requires PHP: 8.2
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -47,8 +47,8 @@ This plugin is distributed through GitHub releases and includes a scoped updater
 
 3. Instantiate and mount the service:
 
-`use Bmd\EnableButtonIcons;`
-`$plugin = new EnableButtonIcons( plugin_dir_url( __FILE__ ), plugin_dir_path( __FILE__ ) );`
+`use Bmd\EnableButtonIcons\Plugin;`
+`$plugin = new Plugin( plugin_dir_url( __FILE__ ), plugin_dir_path( __FILE__ ) );`
 `$plugin->mount();`
 
 == Frequently Asked Questions ==
@@ -71,6 +71,25 @@ It is a fork and rewrite based on that project, with updated architecture and pa
 
 == Changelog ==
 
+= 0.3.2 =
+
+* Refined the PHP plugin architecture around a dedicated bootstrapper, plugin service, and utility helper.
+* Updated Composer autoloading for the new `Bmd\EnableButtonIcons` namespace structure.
+* Added and completed PHP file comments and method documentation.
+* Updated plugin banner artwork.
+* Rebuilt scoped updater dependencies.
+* Removed source icon packages from normal development dependencies now that icon data is generated.
+
+= 0.3.1 =
+
+* Added icon toggle deselection so clicking the selected icon removes it.
+* Split editor sidebar into separate Icon and Icon Styles panels.
+* Improved icon size control layout with a consistent label and grid alignment.
+* Fixed null safety for custom SVG icon input field.
+* Fixed block list rendering to skip when icon has no source.
+* Updated `IconValue` TypeScript types to allow nullable fields.
+* Removed unused `classnames` dependency.
+
 = 0.3.0 =
 
 * Fork and rewrite of the original `ndiego/enable-button-icons` plugin.
@@ -79,6 +98,10 @@ It is a fork and rewrite based on that project, with updated architecture and pa
 * Added scoped GitHub updater bootstrap and release packaging workflow.
 
 == Upgrade Notice ==
+
+= 0.3.2 =
+
+Updates plugin internals, documentation, scoped dependencies, and banner assets.
 
 = 0.3.0 =
 

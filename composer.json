@@ -21,7 +21,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Bmd\\": "./inc"
+            "Bmd\\EnableButtonIcons\\": "./inc"
         }
     },
     "require": {},
@@ -42,7 +42,8 @@
         "phpsniff:PSR12": "./vendor/bin/phpcs ./inc -v --standard='PSR12'",
         "phpsniff:PSR2": "./vendor/bin/phpcs ./inc -v --standard='PSR2'",
         "phpsniff:WP": "./vendor/bin/phpcs ./inc -v --standard='WordPress'",
-        "wpify-scoper": "wpify-scoper"
+        "wpify:install": "wpify-scoper install",
+        "wpify:update": "wpify-scoper update"
     },
     "extra": {
         "wpify-scoper": {
@@ -50,7 +51,8 @@
             "slug": "enable-button-icons",
             "folder": "./vendor/scoped",
             "composerjson": "composer-deps.json",
-            "composerlock": "composer-deps.lock"
+            "composerlock": "composer-deps.lock",
+            "autorun": true
         }
     }
 }

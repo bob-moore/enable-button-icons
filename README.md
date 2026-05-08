@@ -2,7 +2,7 @@
 
 ![Enable Button Icons](assets/banner-1544x500.jpg)
 
-[![Try it in the WordPress Playground](https://img.shields.io/badge/Try_in_Playground-v0.3.1-blue?logo=wordpress&logoColor=%23fff&labelColor=%233858e9&color=%233858e9)](https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/bob-moore/enable-button-icons/main/_playground/blueprint-github.json)
+[![Try it in the WordPress Playground](https://img.shields.io/badge/Try_in_Playground-v0.3.2-blue?logo=wordpress&logoColor=%23fff&labelColor=%233858e9&color=%233858e9)](https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/bob-moore/enable-button-icons/main/_playground/blueprint-github.json)
 
 Add icons to the WordPress Button block (`core/button`) in both the editor and frontend.
 
@@ -49,9 +49,9 @@ composer require bmd/enable-button-icons
 Then bootstrap:
 
 ```php
-use Bmd\EnableButtonIcons;
+use Bmd\EnableButtonIcons\Plugin;
 
-$plugin = new EnableButtonIcons(
+$plugin = new Plugin(
     plugin_dir_url( __FILE__ ),
     plugin_dir_path( __FILE__ )
 );
@@ -74,6 +74,14 @@ This plugin is distributed through GitHub releases (not WordPress.org). The plug
 
 ## Changelog
 
+### 0.3.2
+
+- Refined the PHP plugin architecture around a dedicated bootstrapper, plugin service, and utility helper.
+- Updated Composer autoloading for the new `Bmd\EnableButtonIcons` namespace structure.
+- Added and completed PHP file comments and method documentation.
+- Updated plugin banner artwork.
+- Rebuilt scoped updater dependencies.
+- Removed source icon packages from normal development dependencies now that icon data is generated.
 
 ### 0.3.1
 

@@ -46,6 +46,7 @@ config.codekit
 node_modules
 vendor
 *.claude
+tmp-*/
 # Other #
 ####################
 /instructions

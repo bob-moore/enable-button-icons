@@ -1,52 +1,51 @@
 {
   "name": "enable-button-icons",
-  "version": "0.1.0",
+  "version": "0.3.2",
   "description": "Easily add icons to Button blocks.",
   "author": "Bob Moore",
   "license": "GPL-2.0-or-later",
   "repository": {
     "type": "git",
-    "url": "git://github.com/ndiego/enable-button-icons.git"
+    "url": "git://github.com/bob-moore/enable-button-icons.git"
   },
   "scripts": {
     "generate-icons": "node scripts/generate-icons-ts.js",
-		"build": "npm run fix:css && npm run fix:js && npm run compile",
-		"compile": "wp-scripts build",
-		"watch": "wp-scripts start",
-		"watch:hot": "wp-scripts start --hot",
-		"check-engines": "wp-scripts check-engines",
-		"check-licenses": "wp-scripts check-licenses --prod --gpl2",
-		"format": "wp-scripts format",
-		"lint:css": "wp-scripts lint-style './src/**/*.scss'",
-		"fix:css": "wp-scripts lint-style './src/**/*.scss' --fix",
-		"lint:js": "wp-scripts lint-js './src/**/*.{js,jsx,ts,tsx}'",
-		"fix:js": "wp-scripts lint-js './src/**/*.{js,jsx,ts,tsx}' --fix",
-		"lint:md:docs": "wp-scripts lint-md-docs",
-		"lint:pkg-json": "wp-scripts lint-pkg-json",
-		"packages-update": "wp-scripts packages-update",
-		"plugin-zip": "wp-scripts plugin-zip"
+    "build": "npm run fix:css && npm run fix:js && npm run compile",
+    "compile": "wp-scripts build",
+    "watch": "wp-scripts start",
+    "watch:hot": "wp-scripts start --hot",
+    "check-engines": "wp-scripts check-engines",
+    "check-licenses": "wp-scripts check-licenses --prod --gpl2",
+    "format": "wp-scripts format",
+    "lint:css": "wp-scripts lint-style './src/**/*.scss'",
+    "fix:css": "wp-scripts lint-style './src/**/*.scss' --fix",
+    "lint:js": "wp-scripts lint-js './src/**/*.{js,jsx,ts,tsx}'",
+    "fix:js": "wp-scripts lint-js './src/**/*.{js,jsx,ts,tsx}' --fix",
+    "lint:md:docs": "wp-scripts lint-md-docs",
+    "lint:pkg-json": "wp-scripts lint-pkg-json",
+    "packages-update": "wp-scripts packages-update",
+    "plugin-zip": "wp-scripts plugin-zip"
   },
   "files": [
     "plugin.php",
     "build",
     "assets",
     "inc",
-    "vendor",
+    "vendor/autoload.php",
+    "vendor/composer",
+    "vendor/scoped",
     "readme.txt"
   ],
   "dependencies": {
     "@10up/block-components": "^1.22.2"
   },
   "devDependencies": {
-    "react": "^18.3.1",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
-    "@mui/icons-material": "^7.3.4",
-    "@mui/material": "^7.3.4",
-    "@tabler/icons-react": "^3.41.1",
     "@wordpress/components": "^32.6.0",
-    "@wordpress/icons": "^9.35.0",
     "@wordpress/scripts": "^26.15.0",
+    "ajv": "^8.20.0",
+    "react": "^18.3.1",
     "webpack-remove-empty-scripts": "^0.8.4"
   }
 }
