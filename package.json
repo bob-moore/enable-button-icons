@@ -24,7 +24,7 @@
     "lint:md:docs": "wp-scripts lint-md-docs",
     "lint:pkg-json": "wp-scripts lint-pkg-json",
     "packages-update": "wp-scripts packages-update",
-    "plugin-zip": "wp-scripts plugin-zip"
+    "plugin-zip": "sh -c 'composer dump-autoload --no-dev --optimize && wp-scripts plugin-zip; status=$?; composer dump-autoload --optimize; exit $status'"
   },
   "files": [
     "enable-button-icons.php",
