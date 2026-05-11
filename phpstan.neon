@@ -2,5 +2,7 @@ includes:
     - ./vendor/szepeviktor/phpstan-wordpress/extension.neon
 parameters:
 	level: 6
+	bootstrapFiles:
+		- ./vendor/scoped/autoload.php
 	paths:
 		- ./inc

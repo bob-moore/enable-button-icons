@@ -27,7 +27,7 @@
     "plugin-zip": "wp-scripts plugin-zip"
   },
   "files": [
-    "plugin.php",
+    "enable-button-icons.php",
     "build",
     "assets",
     "inc",

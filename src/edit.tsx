@@ -1,7 +1,7 @@
 import { createHigherOrderComponent } from '@wordpress/compose';
 import { InspectorControls } from '@wordpress/block-editor';
 import { PanelBody, Spinner } from '@wordpress/components';
-import { lazy, Suspense, useEffect } from '@wordpress/element';
+import { lazy, Suspense } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 import type { ComponentType, FC } from 'react';
 
@@ -36,10 +36,6 @@ export const Edit = createHigherOrderComponent<
 		if ( 'core/button' !== name ) {
 			return <BlockEdit { ...props } />;
 		}
-
-		useEffect( () => {
-			import( './icons' ).then( ( { loadIcons } ) => loadIcons() );
-		}, [] );
 
 		const { icon, iconSize, iconPositionLeft } = attributes;
 

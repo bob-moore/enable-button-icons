@@ -8,7 +8,7 @@ Requires PHP: 8.2
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Add icons to the core/button block with WordPress icons, MUI icons, or custom SVG.
+Add icons to the core/button block with WordPress icons, MUI icon families, or custom SVG.
 
 == Description ==
 
@@ -20,7 +20,8 @@ https://github.com/ndiego/enable-button-icons
 What it does:
 
 * Adds icon controls to core/button in the block editor.
-* Supports WordPress icon set, MUI icon set, and custom SVG markup.
+* Supports WordPress icons, MUI icon families, and custom SVG markup.
+* Lets developers add more static JSON icon families with a PHP filter.
 * Supports left/right icon position.
 * Supports per-button icon size using CSS units.
 * Renders sanitized inline SVG on the frontend.
@@ -48,8 +49,10 @@ This plugin is distributed through GitHub releases and includes a scoped updater
 3. Instantiate and mount the service:
 
 `use Bmd\EnableButtonIcons\Plugin;`
-`$plugin = new Plugin( plugin_dir_url( __FILE__ ), plugin_dir_path( __FILE__ ) );`
+`$plugin = new Plugin( $dependency_url, $dependency_path );`
 `$plugin->mount();`
+
+The constructor expects the URL and filesystem path to the Enable Button Icons dependency root, not the file where you call it.
 
 == Frequently Asked Questions ==
 
@@ -63,7 +66,7 @@ Yes. It includes a GitHub updater integration so WordPress can detect updates fr
 
 = Which icon sets are included? =
 
-WordPress icons and MUI icons, plus a custom SVG option.
+WordPress icons and MUI icon families, plus a custom SVG option. Developers can also register additional static JSON icon families with the `enable_button_icons_icon_families` filter.
 
 = Is this the same as the original ndiego plugin? =
 

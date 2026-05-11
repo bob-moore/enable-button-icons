@@ -28,6 +28,7 @@ This version modernizes the architecture, packaging, and update flow while keepi
 - Supports icon libraries:
   - WordPress icons
   - MUI icons
+  - MUI variant families, including Outlined, Rounded, and Sharp
   - Custom SVG input
 - Lets you set icon position (left/right).
 - Lets you set icon size per button using CSS units (for example `1em`, `20px`, `1.25rem`).
@@ -81,6 +82,21 @@ The `Plugin` constructor expects the URL and filesystem path to the Enable Butto
 4. Choose an icon source (WordPress, MUI, or Custom SVG).
 5. Pick icon size and position.
 6. Save and view the post.
+
+## Custom Icon Families
+
+Developers can add static JSON icon families with the `enable_button_icons_icon_families` filter. Each JSON file should contain an array of picker-compatible icon objects with `name`, `label`, and `source` properties.
+
+```php
+add_filter( 'enable_button_icons_icon_families', function ( $families ) {
+    $families['brand-icons'] = array(
+        'label' => 'Brand Icons',
+        'url'   => plugin_dir_url( __FILE__ ) . 'icons/brand-icons.json',
+    );
+
+    return $families;
+} );
+```
 
 ## Updates
 

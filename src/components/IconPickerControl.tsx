@@ -9,10 +9,13 @@ import { __ } from '@wordpress/i18n';
 import { IconPicker } from '@10up/block-components';
 import type { FC } from 'react';
 
-import { ICON_SET_WORDPRESS, ICON_SET_MUI, loadIcons } from '../icons';
+import {
+	ICON_SET_CUSTOM,
+	getDefaultIconFamily,
+	getIconFamilies,
+	loadIconFamily,
+} from '../icons';
 import type { IconValue } from '../types';
-
-const ICON_SET_CUSTOM = 'custom';
 
 type SelectedLibrary = typeof ICON_SET_CUSTOM | string;
 
@@ -40,14 +43,32 @@ export const IconPickerControl: FC< IconPickerControlProps > = ( {
 	icon,
 	onChange,
 } ) => {
+	const iconFamilies = getIconFamilies();
 	const [ selectedLibrary, setSelectedLibrary ] = useState< SelectedLibrary >(
-		( icon?.iconSet as SelectedLibrary ) ?? ICON_SET_WORDPRESS
+		icon?.iconSet && iconFamilies[ icon.iconSet ]
+			? icon.iconSet
+			: getDefaultIconFamily()
 	);
-	const [ iconsReady, setIconsReady ] = useState( false );
+	const [ readyLibrary, setReadyLibrary ] =
+		useState< SelectedLibrary | null >( null );
 
 	useEffect( () => {
-		loadIcons().then( () => setIconsReady( true ) );
-	}, [] );
+		if ( ICON_SET_CUSTOM === selectedLibrary ) {
+			setReadyLibrary( selectedLibrary );
+			return;
+		}
+
+		setReadyLibrary( null );
+
+		loadIconFamily( selectedLibrary )
+			.then( () => setReadyLibrary( selectedLibrary ) )
+			.catch( () => setReadyLibrary( null ) );
+	}, [ selectedLibrary ] );
+
+	const handleLibraryChange = ( value: SelectedLibrary ) => {
+		setReadyLibrary( null );
+		setSelectedLibrary( value );
+	};
 
 	return (
 		<>
@@ -55,20 +76,18 @@ export const IconPickerControl: FC< IconPickerControlProps > = ( {
 				label={ __( 'Icon library', 'enable-button-icons' ) }
 				value={ selectedLibrary }
 				options={ [
-					{
-						label: __( 'WordPress', 'enable-button-icons' ),
-						value: ICON_SET_WORDPRESS,
-					},
-					{
-						label: __( 'MUI', 'enable-button-icons' ),
-						value: ICON_SET_MUI,
-					},
+					...Object.entries( iconFamilies ).map(
+						( [ value, family ] ) => ( {
+							label: family.label,
+							value,
+						} )
+					),
 					{
 						label: __( 'Custom', 'enable-button-icons' ),
 						value: ICON_SET_CUSTOM,
 					},
 				] }
-				onChange={ setSelectedLibrary }
+				onChange={ handleLibraryChange }
 			/>
 			{ ICON_SET_CUSTOM === selectedLibrary ? (
 				<TextareaControl
@@ -91,7 +110,7 @@ export const IconPickerControl: FC< IconPickerControlProps > = ( {
 				/>
 			) : (
 				<PanelRow>
-					{ iconsReady ? (
+					{ readyLibrary === selectedLibrary ? (
 						<IconPicker
 							// eslint-disable-next-line @typescript-eslint/no-explicit-any
 							value={

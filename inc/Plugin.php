@@ -107,6 +107,16 @@ class Plugin
 			true
 		);
 
+		wp_add_inline_script(
+			'enable-button-icons-editor-scripts',
+			'window.enableButtonIcons = ' . wp_json_encode(
+				[
+					'iconFamilies' => $this->getIconFamilies(),
+				]
+			) . ';',
+			'before'
+		);
+
 		$style_file = $this->path . 'build/editor.css';
 
 		if ( ! is_file( $style_file ) ) {
@@ -183,6 +193,85 @@ class Plugin
 			'dependencies' => is_array( $dependencies ) ? $dependencies : [],
 			'version'      => is_string( $version ) ? $version : null,
 		];
+	}
+
+	/**
+	 * Get icon families available to the editor.
+	 *
+	 * @return array<string, array{label: string, url: string}>
+	 */
+	protected function getIconFamilies(): array
+	{
+		$icon_families = [
+			'wordpress'    => [
+				'label' => __( 'WordPress', 'enable-button-icons' ),
+				'url'   => $this->url . 'assets/icons/wordpress.json',
+			],
+			'mui'          => [
+				'label' => __( 'MUI', 'enable-button-icons' ),
+				'url'   => $this->url . 'assets/icons/mui.json',
+			],
+			'mui-outlined' => [
+				'label' => __( 'MUI - Outlined', 'enable-button-icons' ),
+				'url'   => $this->url . 'assets/icons/mui-outlined.json',
+			],
+			'mui-rounded'  => [
+				'label' => __( 'MUI - Rounded', 'enable-button-icons' ),
+				'url'   => $this->url . 'assets/icons/mui-rounded.json',
+			],
+			'mui-sharp'    => [
+				'label' => __( 'MUI - Sharp', 'enable-button-icons' ),
+				'url'   => $this->url . 'assets/icons/mui-sharp.json',
+			],
+		];
+
+		$filtered_icon_families = $this->applyIconFamiliesFilter( $icon_families );
+
+		if ( ! is_array( $filtered_icon_families ) ) {
+			return [];
+		}
+
+		$valid_families = [];
+
+		foreach ( $filtered_icon_families as $slug => $family ) {
+			if (
+				! is_string( $slug ) ||
+				! is_array( $family ) ||
+				empty( $family['label'] ) ||
+				empty( $family['url'] ) ||
+				! is_string( $family['label'] ) ||
+				! is_string( $family['url'] )
+			) {
+				continue;
+			}
+
+			$valid_families[ sanitize_key( $slug ) ] = [
+				'label' => sanitize_text_field( $family['label'] ),
+				'url'   => esc_url_raw( $family['url'] ),
+			];
+		}
+
+		return $valid_families;
+	}
+
+	/**
+	 * Apply the icon family filter.
+	 *
+	 * @param array<string, array{label: string, url: string}> $icon_families Icon families keyed by family slug.
+	 *
+	 * @return mixed
+	 */
+	protected function applyIconFamiliesFilter( array $icon_families ): mixed
+	{
+		/**
+		 * Filter the icon families available in the editor.
+		 *
+		 * Each family must include a human-readable label and a URL pointing to a
+		 * JSON array of icons compatible with the 10up IconPicker data shape.
+		 *
+		 * @param array<string, array{label: string, url: string}> $icon_families Icon families keyed by family slug.
+		 */
+		return apply_filters( 'enable_button_icons_icon_families', $icon_families );
 	}
 
 	/**
